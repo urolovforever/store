@@ -8,3 +8,8 @@ header .main_header .main-menu > ul {
     justify-content: center;
     width: 100%;
 }
+
+/* Show wishlist on desktop */
+header ul.top_tools > li:nth-child(4) {
+    display: inline-block !important;
+}
