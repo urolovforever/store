@@ -1,0 +1,30 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Main branchga kod tushganda ishga tushadi
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kodni yuklash
+        uses: actions/checkout@v4
+
+      - name: GitHub Pages-ni sozlash
+        uses: actions/configure-pages@v4
+
+      - name: Fayllarni yuklash (Upload)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # Loyihangiz joylashgan joy (hozirgi papka)
+
+      - name: Deploy qilish
+        id: deployment
+        uses: actions/deploy-pages@v4
