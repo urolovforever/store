@@ -274,32 +274,8 @@
 				<div class="box_account">
 					<h3 class="new_client">Sign Up</h3>
 					<div class="form_container">
-						<!-- Step 1: Phone Number -->
+						<!-- Step 1: Phone Number + Name -->
 						<div id="register_step1">
-							<div class="form-group">
-								<label>Phone Number</label>
-								<input type="tel" class="form-control" name="phone_register" id="phone_register" placeholder="+998 XX XXX XX XX">
-							</div>
-							<div class="text-center">
-								<button type="button" class="btn_1 full-width" onclick="showRegisterSMS()">Send SMS Code</button>
-							</div>
-						</div>
-						<!-- Step 2: SMS Code -->
-						<div id="register_step2" style="display: none;">
-							<div class="form-group">
-								<label>SMS Code</label>
-								<input type="text" class="form-control" name="sms_code_register" id="sms_code_register" placeholder="Enter 6-digit code" maxlength="6">
-							</div>
-							<p class="small text-muted">SMS code sent to your phone number</p>
-							<div class="text-center">
-								<button type="button" class="btn_1 full-width" onclick="showRegisterInfo()">Verify</button>
-							</div>
-							<div class="text-center mt-3">
-								<a href="javascript:void(0);" onclick="resendRegisterSMS()">Resend SMS Code</a>
-							</div>
-						</div>
-						<!-- Step 3: User Info -->
-						<div id="register_step3" style="display: none;">
 							<div class="row">
 								<div class="col-6">
 									<div class="form-group">
@@ -314,7 +290,21 @@
 									</div>
 								</div>
 							</div>
-							<hr>
+							<div class="form-group">
+								<label>Phone Number *</label>
+								<input type="tel" class="form-control" name="phone_register" id="phone_register" placeholder="+998 XX XXX XX XX">
+							</div>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="showRegisterSMS()">Send SMS Code</button>
+							</div>
+						</div>
+						<!-- Step 2: SMS Code -->
+						<div id="register_step2" style="display: none;">
+							<div class="form-group">
+								<label>SMS Code</label>
+								<input type="text" class="form-control" name="sms_code_register" id="sms_code_register" placeholder="Enter 6-digit code" maxlength="6">
+							</div>
+							<p class="small text-muted">SMS code sent to your phone number</p>
 							<div class="form-group">
 								<label class="container_check">Accept <a href="#0">Terms and conditions</a>
 									<input type="checkbox" id="terms_check">
@@ -323,6 +313,9 @@
 							</div>
 							<div class="text-center">
 								<button type="button" class="btn_1 full-width" onclick="registerSubmit()">Create Account</button>
+							</div>
+							<div class="text-center mt-3">
+								<a href="javascript:void(0);" onclick="resendRegisterSMS()">Resend SMS Code</a>
 							</div>
 						</div>
 					</div>
@@ -436,7 +429,14 @@
 
 		// Register Functions
 		function showRegisterSMS() {
+			var firstName = document.getElementById('first_name').value;
+			var lastName = document.getElementById('last_name').value;
 			var phone = document.getElementById('phone_register').value;
+
+			if (!firstName || !lastName) {
+				alert('Please enter your first and last name');
+				return;
+			}
 			if (phone.length < 9) {
 				alert('Please enter a valid phone number');
 				return;
@@ -449,23 +449,12 @@
 			alert('SMS code resent to your phone number');
 		}
 
-		function showRegisterInfo() {
-			var code = document.getElementById('sms_code_register').value;
-			if (code.length !== 6) {
-				alert('Please enter a valid 6-digit code');
-				return;
-			}
-			document.getElementById('register_step2').style.display = 'none';
-			document.getElementById('register_step3').style.display = 'block';
-		}
-
 		function registerSubmit() {
-			var firstName = document.getElementById('first_name').value;
-			var lastName = document.getElementById('last_name').value;
+			var code = document.getElementById('sms_code_register').value;
 			var termsChecked = document.getElementById('terms_check').checked;
 
-			if (!firstName || !lastName) {
-				alert('Please fill in all required fields');
+			if (code.length !== 6) {
+				alert('Please enter a valid 6-digit code');
 				return;
 			}
 			if (!termsChecked) {
