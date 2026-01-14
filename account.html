@@ -229,206 +229,102 @@
 		<div class="page_header">
 			<div class="breadcrumbs">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Category</a></li>
-					<li>Page active</li>
+					<li><a href="index.html">Home</a></li>
+					<li>Account</li>
 				</ul>
 		</div>
 		<h1>Sign In or Create an Account</h1>
 	</div>
 	<!-- /page_header -->
 			<div class="row justify-content-center">
-			<div class="col-xl-6 col-lg-6 col-md-8">
+			<div class="col-xl-5 col-lg-6 col-md-8">
 				<div class="box_account">
-					<h3 class="client">Already Client</h3>
+					<h3 class="client">Sign In</h3>
 					<div class="form_container">
-						<div class="row no-gutters">
-							<div class="col-lg-6 pr-lg-1">
-								<a href="#0" class="social_bt facebook">Login with Facebook</a>
-							</div>
-							<div class="col-lg-6 pl-lg-1">
-								<a href="#0" class="social_bt google">Login with Google</a>
-							</div>
-						</div>
-						<div class="divider"><span>Or</span></div>
-						<div class="form-group">
-							<input type="email" class="form-control" name="email" id="email" placeholder="Email*">
-						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" name="password_in" id="password_in" value="" placeholder="Password*">
-						</div>
-						<div class="clearfix add_bottom_15">
-							<div class="checkboxes float-start">
-								<label class="container_check">Remember me
-									<input type="checkbox">
-									<span class="checkmark"></span>
-								</label>
-							</div>
-							<div class="float-end"><a id="forgot" href="javascript:void(0);">Lost Password?</a></div>
-						</div>
-						<div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
-						<div id="forgot_pw">
+						<!-- Step 1: Phone Number -->
+						<div id="login_step1">
 							<div class="form-group">
-								<input type="email" class="form-control" name="email_forgot" id="email_forgot" placeholder="Type your email">
+								<label>Phone Number</label>
+								<input type="tel" class="form-control" name="phone_login" id="phone_login" placeholder="+998 XX XXX XX XX">
 							</div>
-							<p>A new password will be sent shortly.</p>
-							<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="showLoginSMS()">Send SMS Code</button>
+							</div>
+						</div>
+						<!-- Step 2: SMS Code -->
+						<div id="login_step2" style="display: none;">
+							<div class="form-group">
+								<label>SMS Code</label>
+								<input type="text" class="form-control" name="sms_code_login" id="sms_code_login" placeholder="Enter 6-digit code" maxlength="6">
+							</div>
+							<p class="small text-muted">SMS code sent to your phone number</p>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="loginSubmit()">Sign In</button>
+							</div>
+							<div class="text-center mt-3">
+								<a href="javascript:void(0);" onclick="resendLoginSMS()">Resend SMS Code</a>
+							</div>
 						</div>
 					</div>
 					<!-- /form_container -->
 				</div>
 				<!-- /box_account -->
-				<div class="row">
-					<div class="col-md-6 d-none d-lg-block">
-						<ul class="list_ok">
-							<li>Find Locations</li>
-							<li>Quality Location check</li>
-							<li>Data Protection</li>
-						</ul>
-					</div>
-					<div class="col-md-6 d-none d-lg-block">
-						<ul class="list_ok">
-							<li>Secure Payments</li>
-							<li>H24 Support</li>
-						</ul>
-					</div>
-				</div>
-				<!-- /row -->
 			</div>
-			<div class="col-xl-6 col-lg-6 col-md-8">
+			<div class="col-xl-5 col-lg-6 col-md-8">
 				<div class="box_account">
-					<h3 class="new_client">New Client</h3> <small class="float-right pt-2">* Required Fields</small>
+					<h3 class="new_client">Sign Up</h3>
 					<div class="form_container">
-						<div class="form-group">
-							<input type="email" class="form-control" name="email" id="email_2" placeholder="Email*">
+						<!-- Step 1: Phone Number -->
+						<div id="register_step1">
+							<div class="form-group">
+								<label>Phone Number</label>
+								<input type="tel" class="form-control" name="phone_register" id="phone_register" placeholder="+998 XX XXX XX XX">
+							</div>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="showRegisterSMS()">Send SMS Code</button>
+							</div>
 						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" name="password_in_2" id="password_in_2" value="" placeholder="Password*">
+						<!-- Step 2: SMS Code -->
+						<div id="register_step2" style="display: none;">
+							<div class="form-group">
+								<label>SMS Code</label>
+								<input type="text" class="form-control" name="sms_code_register" id="sms_code_register" placeholder="Enter 6-digit code" maxlength="6">
+							</div>
+							<p class="small text-muted">SMS code sent to your phone number</p>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="showRegisterInfo()">Verify</button>
+							</div>
+							<div class="text-center mt-3">
+								<a href="javascript:void(0);" onclick="resendRegisterSMS()">Resend SMS Code</a>
+							</div>
 						</div>
-						<hr>
-						<div class="form-group">
-							<label class="container_radio" style="display: inline-block; margin-right: 15px;">Private
-								<input type="radio" name="client_type" checked value="private">
-								<span class="checkmark"></span>
-							</label>
-							<label class="container_radio" style="display: inline-block;">Company
-								<input type="radio" name="client_type" value="company">
-								<span class="checkmark"></span>
-							</label>
-						</div>
-						<div class="private box">
-							<div class="row no-gutters">
-								<div class="col-6 pr-1">
+						<!-- Step 3: User Info -->
+						<div id="register_step3" style="display: none;">
+							<div class="row">
+								<div class="col-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name*">
+										<label>First Name *</label>
+										<input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
 									</div>
 								</div>
-								<div class="col-6 pl-1">
+								<div class="col-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Last Name*">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Full Address*">
+										<label>Last Name *</label>
+										<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
 									</div>
 								</div>
 							</div>
-							<!-- /row -->
-							<div class="row no-gutters">
-								<div class="col-6 pr-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="City*">
-									</div>
-								</div>
-								<div class="col-6 pl-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Postal Code*">
-									</div>
-								</div>
+							<hr>
+							<div class="form-group">
+								<label class="container_check">Accept <a href="#0">Terms and conditions</a>
+									<input type="checkbox" id="terms_check">
+									<span class="checkmark"></span>
+								</label>
 							</div>
-							<!-- /row -->
-							
-							<div class="row no-gutters">
-								<div class="col-6 pr-1">
-									<div class="form-group">
-										<div class="custom-select-form">
-											<select class="wide add_bottom_10" name="country" id="country">
-													<option value="" selected>Country*</option>
-													<option value="Europe">Europe</option>
-													<option value="United states">United states</option>
-													<option value="Asia">Asia</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="col-6 pl-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Telephone *">
-									</div>
-								</div>
+							<div class="text-center">
+								<button type="button" class="btn_1 full-width" onclick="registerSubmit()">Create Account</button>
 							</div>
-							<!-- /row -->
-							
 						</div>
-						<!-- /private -->
-						<div class="company box" style="display: none;">
-							<div class="row no-gutters">
-								<div class="col-12">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Company Name*">
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Full Address">
-									</div>
-								</div>
-							</div>
-							<!-- /row -->
-							<div class="row no-gutters">
-								<div class="col-6 pr-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="City*">
-									</div>
-								</div>
-								<div class="col-6 pl-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Postal Code*">
-									</div>
-								</div>
-							</div>
-							<!-- /row -->
-							<div class="row no-gutters">
-								<div class="col-6 pr-1">
-									<div class="form-group">
-										<div class="custom-select-form">
-											<select class="wide add_bottom_10" name="country" id="country_2">
-													<option value="" selected>Country*</option>
-													<option value="Europe">Europe</option>
-													<option value="United states">United states</option>
-													<option value="Asia">Asia</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="col-6 pl-1">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Telephone *">
-									</div>
-								</div>
-							</div>
-							<!-- /row -->
-						</div>
-						<!-- /company -->
-						<hr>
-						<div class="form-group">
-							<label class="container_check">Accept <a href="#0">Terms and conditions</a>
-								<input type="checkbox">
-								<span class="checkmark"></span>
-							</label>
-						</div>
-						<div class="text-center"><input type="submit" value="Register" class="btn_1 full-width"></div>
 					</div>
 					<!-- /form_container -->
 				</div>
@@ -513,13 +409,72 @@
     <script src="js/main.js"></script>
 
     <script>
-    	// Client type Panel
-		$('input[name="client_type"]').on("click", function() {
-		    var inputValue = $(this).attr("value");
-		    var targetBox = $("." + inputValue);
-		    $(".box").not(targetBox).hide();
-		    $(targetBox).show();
-		});
+		// Login Functions
+		function showLoginSMS() {
+			var phone = document.getElementById('phone_login').value;
+			if (phone.length < 9) {
+				alert('Please enter a valid phone number');
+				return;
+			}
+			document.getElementById('login_step1').style.display = 'none';
+			document.getElementById('login_step2').style.display = 'block';
+		}
+
+		function resendLoginSMS() {
+			alert('SMS code resent to your phone number');
+		}
+
+		function loginSubmit() {
+			var code = document.getElementById('sms_code_login').value;
+			if (code.length !== 6) {
+				alert('Please enter a valid 6-digit code');
+				return;
+			}
+			// Redirect to profile page after successful login
+			window.location.href = 'profile-page.html';
+		}
+
+		// Register Functions
+		function showRegisterSMS() {
+			var phone = document.getElementById('phone_register').value;
+			if (phone.length < 9) {
+				alert('Please enter a valid phone number');
+				return;
+			}
+			document.getElementById('register_step1').style.display = 'none';
+			document.getElementById('register_step2').style.display = 'block';
+		}
+
+		function resendRegisterSMS() {
+			alert('SMS code resent to your phone number');
+		}
+
+		function showRegisterInfo() {
+			var code = document.getElementById('sms_code_register').value;
+			if (code.length !== 6) {
+				alert('Please enter a valid 6-digit code');
+				return;
+			}
+			document.getElementById('register_step2').style.display = 'none';
+			document.getElementById('register_step3').style.display = 'block';
+		}
+
+		function registerSubmit() {
+			var firstName = document.getElementById('first_name').value;
+			var lastName = document.getElementById('last_name').value;
+			var termsChecked = document.getElementById('terms_check').checked;
+
+			if (!firstName || !lastName) {
+				alert('Please fill in all required fields');
+				return;
+			}
+			if (!termsChecked) {
+				alert('Please accept the terms and conditions');
+				return;
+			}
+			// Redirect to profile page after successful registration
+			window.location.href = 'profile-page.html';
+		}
 	</script>
 		
 </body>
