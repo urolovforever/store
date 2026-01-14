@@ -224,238 +224,151 @@
 	<!-- /header -->
 	
 	<main class="bg_gray">
-	
-		
+
+
 	<div class="container margin_30">
 		<div class="page_header">
 			<div class="breadcrumbs">
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Category</a></li>
-					<li>Page active</li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="cart.html">Cart</a></li>
+					<li>Checkout</li>
 				</ul>
 		</div>
-		<h1>Sign In or Create an Account</h1>
-			
+		<h1>Checkout</h1>
+
 	</div>
 	<!-- /page_header -->
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="step first">
-						<h3>1. User Info and Billing address</h3>
-					<ul class="nav nav-tabs" id="tab_checkout" role="tablist">
-					  <li class="nav-item">
-						<a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#tab_1" role="tab" aria-controls="tab_1" aria-selected="true">Register</a>
-					  </li>
-					  <li class="nav-item">
-						<a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#tab_2" role="tab" aria-controls="tab_2" aria-selected="false">Login</a>
-					  </li>
-					</ul>
-					<div class="tab-content checkout">
-						<div class="tab-pane fade show active" id="tab_1" role="tabpanel" aria-labelledby="tab_1">
+						<h3>1. Contact & Delivery Info</h3>
+						<div class="tab-content checkout">
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email">
+								<label>First Name *</label>
+								<input type="text" class="form-control" placeholder="First Name" id="checkout_fname">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password">
+								<label>Last Name *</label>
+								<input type="text" class="form-control" placeholder="Last Name" id="checkout_lname">
+							</div>
+							<div class="form-group">
+								<label>Phone Number *</label>
+								<input type="tel" class="form-control" placeholder="+998 XX XXX XX XX" id="checkout_phone">
 							</div>
 							<hr>
-							<div class="row no-gutters">
-								<div class="col-6 form-group pr-1">
-									<input type="text" class="form-control" placeholder="Name">
-								</div>
-								<div class="col-6 form-group pl-1">
-									<input type="text" class="form-control" placeholder="Last Name">
-								</div>
-							</div>
-							<!-- /row -->
+							<h6>Shipping Address</h6>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Full Address">
-							</div>
-							<div class="row no-gutters">
-								<div class="col-6 form-group pr-1">
-									<input type="text" class="form-control" placeholder="City">
-								</div>
-								<div class="col-6 form-group pl-1">
-									<input type="text" class="form-control" placeholder="Postal code">
-								</div>
-							</div>
-							<!-- /row -->
-							<div class="row no-gutters">
-								<div class="col-md-12 form-group">
-									<div class="custom-select-form">
-										<select class="wide add_bottom_15" name="country" id="country">
-											<option value="" selected>Country</option>
-											<option value="Europe">Europe</option>
-											<option value="United states">United states</option>
-											<option value="Asia">Asia</option>
-										</select>
-									</div>
+								<label>City *</label>
+								<div class="custom-select-form">
+									<select class="wide" name="city" id="checkout_city">
+										<option value="" selected>Select city</option>
+										<option value="tashkent">Tashkent</option>
+										<option value="samarkand">Samarkand</option>
+										<option value="bukhara">Bukhara</option>
+										<option value="fergana">Fergana</option>
+										<option value="namangan">Namangan</option>
+										<option value="andijan">Andijan</option>
+										<option value="nukus">Nukus</option>
+										<option value="karshi">Karshi</option>
+										<option value="gulistan">Gulistan</option>
+										<option value="jizzakh">Jizzakh</option>
+										<option value="navoi">Navoi</option>
+										<option value="termez">Termez</option>
+										<option value="urgench">Urgench</option>
+									</select>
 								</div>
 							</div>
-							<!-- /row -->
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Telephone">
+								<label>District *</label>
+								<input type="text" class="form-control" placeholder="District" id="checkout_district">
 							</div>
-							<hr>
 							<div class="form-group">
-								<label class="container_check" id="other_addr">Other billing address
-								  <input type="checkbox">
-								  <span class="checkmark"></span>
-								</label>
+								<label>Address *</label>
+								<input type="text" class="form-control" placeholder="Street, house, apartment" id="checkout_address">
 							</div>
-							<div id="other_addr_c" class="pt-2">
-							<div class="row no-gutters">
-								<div class="col-6 form-group pr-1">
-									<input type="text" class="form-control" placeholder="Name">
-								</div>
-								<div class="col-6 form-group pl-1">
-									<input type="text" class="form-control" placeholder="Last Name">
-								</div>
-							</div>
-							<!-- /row -->
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Full Address">
+								<label>Additional Info</label>
+								<textarea class="form-control" placeholder="Landmark, entrance, floor..." rows="2" id="checkout_notes"></textarea>
 							</div>
-							<div class="row no-gutters">
-								<div class="col-6 form-group pr-1">
-									<input type="text" class="form-control" placeholder="City">
-								</div>
-								<div class="col-6 form-group pl-1">
-									<input type="text" class="form-control" placeholder="Postal code">
-								</div>
-							</div>
-							<!-- /row -->
-							<div class="row no-gutters">
-								<div class="col-md-12 form-group">
-									<div class="custom-select-form">
-										<select class="wide add_bottom_15" name="country" id="country_2">
-											<option value="" selected>Country</option>
-											<option value="Europe">Europe</option>
-											<option value="United states">United states</option>
-											<option value="Asia">Asia</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<!-- /row -->
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Telephone">
-							</div>
-							</div>
-							<!-- /other_addr_c -->
-							<hr>
 						</div>
-						<!-- /tab_1 -->
-					  <div class="tab-pane fade" id="tab_2" role="tabpanel" aria-labelledby="tab_2" style="position: relative;">
-						  <a href="#0" class="social_bt facebook">Login con Facebook</a>
-						  <a href="#0" class="social_bt google">Login con Google</a>
-						  <div class="form-group">
-								<input type="email" class="form-control" placeholder="Email">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password" name="password_in" id="password_in">
-							</div>
-						  	<div class="clearfix add_bottom_15">
-								<div class="checkboxes float-start">
-									<label class="container_check">Remember me
-										<input type="checkbox">
-										<span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="float-end"><a id="forgot" href="#0">Lost Password?</a></div>
-							</div>
-							  <div id="forgot_pw">
-								<div class="form-group">
-									<input type="email" class="form-control" name="email_forgot" id="email_forgot" placeholder="Type your email">
-								</div>
-								<p>A new password will be sent shortly.</p>
-								<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
-							</div>
-							<hr>
-						  	<input type="submit" class="btn_1 full-width" value="Login">
-						</div>
-						<!-- /tab_2 -->
-					</div>
 					</div>
 					<!-- /step -->
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="step middle payments">
-						<h3>2. Payment and Shipping</h3>
-							<ul>
-								<li>
-									<label class="container_radio">Credit Card<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="payment" checked>
-										<span class="checkmark"></span>
-									</label>
-								</li>
-								<li>
-									<label class="container_radio">Paypal<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="payment">
-										<span class="checkmark"></span>
-									</label>
-								</li>
-								<li>
-									<label class="container_radio">Cash on delivery<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="payment">
-										<span class="checkmark"></span>
-									</label>
-								</li>
-								<li>
-									<label class="container_radio">Bank Transfer<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="payment">
-										<span class="checkmark"></span>
-									</label>
-								</li>
-							</ul>
-							<div class="payment_info d-none d-sm-block"><figure><img src="img/cards_all.svg" alt=""></figure>	<p>Sensibus reformidans interpretaris sit ne, nec errem nostrum et, te nec meliore philosophia. At vix quidam periculis. Solet tritani ad pri, no iisque definitiones sea.</p></div>
-							
-							<h6 class="pb-2">Shipping Method</h6>
-							
-						
+						<h3>2. Payment Method</h3>
 						<ul>
-								<li>
-									<label class="container_radio">Standard shipping<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="shipping" checked>
-										<span class="checkmark"></span>
-									</label>
-								</li>
-								<li>
-									<label class="container_radio">Express shipping<a href="#0" class="info" data-bs-toggle="modal" data-bs-target="#payments_method"></a>
-										<input type="radio" name="shipping">
-										<span class="checkmark"></span>
-									</label>
-								</li>
-								
-							</ul>
-						
+							<li>
+								<label class="container_radio">
+									<img src="https://cdn.payme.uz/logos/payme.svg" alt="Payme" style="height: 24px; margin-right: 10px;">
+									Payme
+									<input type="radio" name="payment" value="payme" checked>
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_radio">
+									<img src="https://click.uz/click/images/logo-click.svg" alt="Click" style="height: 24px; margin-right: 10px;">
+									Click
+									<input type="radio" name="payment" value="click">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_radio">
+									<img src="https://uzumbank.uz/local/templates/main/img/logo.svg" alt="Uzum" style="height: 24px; margin-right: 10px;">
+									Uzum Bank
+									<input type="radio" name="payment" value="uzum">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						</ul>
+						<div class="payment_info">
+							<p class="small text-muted">Secure payment. After clicking "Confirm and Pay" you will be redirected to the payment page.</p>
+						</div>
+
+						<hr>
+						<h6 class="pb-2">Delivery Method</h6>
+						<ul>
+							<li>
+								<label class="container_radio">Standard Delivery (2-3 days) - Free
+									<input type="radio" name="shipping" value="standard" checked>
+									<span class="checkmark"></span>
+								</label>
+							</li>
+							<li>
+								<label class="container_radio">Express Delivery (1 day) - 25,000 UZS
+									<input type="radio" name="shipping" value="express">
+									<span class="checkmark"></span>
+								</label>
+							</li>
+						</ul>
 					</div>
 					<!-- /step -->
-					
+
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="step last">
 						<h3>3. Order Summary</h3>
 					<div class="box_general summary">
 						<ul>
-							<li class="clearfix"><em>1x Armor Air X Fear</em>  <span>$145.00</span></li>
-							<li class="clearfix"><em>2x Armor Air Zoom Alpha</em> <span>$115.00</span></li>
+							<li class="clearfix"><em>1x University Hoodie</em> <span>480,000 UZS</span></li>
+							<li class="clearfix"><em>2x Classic T-Shirt</em> <span>500,000 UZS</span></li>
 						</ul>
 						<ul>
-							<li class="clearfix"><em><strong>Subtotal</strong></em>  <span>$450.00</span></li>
-							<li class="clearfix"><em><strong>Shipping</strong></em> <span>$0</span></li>
-							
+							<li class="clearfix"><em><strong>Subtotal</strong></em> <span>980,000 UZS</span></li>
+							<li class="clearfix"><em><strong>Delivery</strong></em> <span>Free</span></li>
 						</ul>
-						<div class="total clearfix">TOTAL <span>$450.00</span></div>
+						<div class="total clearfix">TOTAL <span>980,000 UZS</span></div>
 						<div class="form-group">
-								<label class="container_check">Register to the Newsletter.
-								  <input type="checkbox" checked>
-								  <span class="checkmark"></span>
-								</label>
-							</div>
-						
-						<a href="confirm.html" class="btn_1 full-width">Confirm and Pay</a>
+							<label class="container_check">I agree to <a href="#0">Terms and Conditions</a>
+							  <input type="checkbox" id="terms_checkout">
+							  <span class="checkmark"></span>
+							</label>
+						</div>
+
+						<a href="confirm.html" class="btn_1 full-width" onclick="return validateCheckout()">Confirm and Pay</a>
 					</div>
 					<!-- /box_general -->
 					</div>
@@ -539,12 +452,14 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">
-			<h5 class="modal-title" id="payments_method_title">Payments Methods</h5>
+			<h5 class="modal-title" id="payments_method_title">Payment Methods</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		  </div>
 		  <div class="modal-body">
-			<p>Welcome to the official University Store Labore prompta nominavi sea ei. Sea no animal saperet gloriatur, ius iusto ullamcorper ad. Qui ignota reformidans ei, vix in elit conceptam adipiscing, quaestio repudiandae delicatissimi vis ei. Fabulas accusamus no has.</p>
-			 <p>Et nam vidit zril, pri elaboraret suscipiantur ut. Duo mucius gloriatur at, in vis integre labitur dolores, mei omnis utinam labitur id. An eum prodesset appellantur. Ut alia nemore mei, at velit veniam vix, nonumy propriae conclusionemque ea cum.</p>
+			<p><strong>Payme</strong> - Pay securely with your Payme wallet or bank card through the Payme app.</p>
+			<p><strong>Click</strong> - Quick and easy payment through Click app or USSD.</p>
+			<p><strong>Uzum Bank</strong> - Pay directly from your Uzum Bank account or card.</p>
+			<p class="text-muted small mt-3">All payments are processed securely. You will be redirected to the selected payment provider to complete your transaction.</p>
 		  </div>
 		</div>
 	  </div>
@@ -555,13 +470,37 @@
     <script src="js/main.js"></script>
 
     <script>
-    	// Other address Panel
-		$('#other_addr input').on("change", function (){
-	        if(this.checked)
-	            $('#other_addr_c').fadeIn('fast');
-	        else
-	            $('#other_addr_c').fadeOut('fast');
-	    });
+		function validateCheckout() {
+			var fname = document.getElementById('checkout_fname').value;
+			var lname = document.getElementById('checkout_lname').value;
+			var phone = document.getElementById('checkout_phone').value;
+			var city = document.getElementById('checkout_city').value;
+			var district = document.getElementById('checkout_district').value;
+			var address = document.getElementById('checkout_address').value;
+			var terms = document.getElementById('terms_checkout').checked;
+
+			if (!fname || !lname) {
+				alert('Please enter your first and last name');
+				return false;
+			}
+			if (phone.length < 9) {
+				alert('Please enter a valid phone number');
+				return false;
+			}
+			if (!city) {
+				alert('Please select a city');
+				return false;
+			}
+			if (!district || !address) {
+				alert('Please enter your full address');
+				return false;
+			}
+			if (!terms) {
+				alert('Please agree to Terms and Conditions');
+				return false;
+			}
+			return true;
+		}
 	</script>
 		
 </body>
