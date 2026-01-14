@@ -242,7 +242,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="step first">
-						<h3>1. Contact & Delivery Info</h3>
+						<h3>1. Contact Info</h3>
 						<div class="tab-content checkout">
 							<div class="form-group">
 								<label>First Name *</label>
@@ -255,41 +255,6 @@
 							<div class="form-group">
 								<label>Phone Number *</label>
 								<input type="tel" class="form-control" placeholder="+998 XX XXX XX XX" id="checkout_phone">
-							</div>
-							<hr>
-							<h6>Shipping Address</h6>
-							<div class="form-group">
-								<label>City *</label>
-								<div class="custom-select-form">
-									<select class="wide" name="city" id="checkout_city">
-										<option value="" selected>Select city</option>
-										<option value="tashkent">Tashkent</option>
-										<option value="samarkand">Samarkand</option>
-										<option value="bukhara">Bukhara</option>
-										<option value="fergana">Fergana</option>
-										<option value="namangan">Namangan</option>
-										<option value="andijan">Andijan</option>
-										<option value="nukus">Nukus</option>
-										<option value="karshi">Karshi</option>
-										<option value="gulistan">Gulistan</option>
-										<option value="jizzakh">Jizzakh</option>
-										<option value="navoi">Navoi</option>
-										<option value="termez">Termez</option>
-										<option value="urgench">Urgench</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label>District *</label>
-								<input type="text" class="form-control" placeholder="District" id="checkout_district">
-							</div>
-							<div class="form-group">
-								<label>Address *</label>
-								<input type="text" class="form-control" placeholder="Street, house, apartment" id="checkout_address">
-							</div>
-							<div class="form-group">
-								<label>Additional Info</label>
-								<textarea class="form-control" placeholder="Landmark, entrance, floor..." rows="2" id="checkout_notes"></textarea>
 							</div>
 						</div>
 					</div>
@@ -329,21 +294,13 @@
 						</div>
 
 						<hr>
-						<h6 class="pb-2">Delivery Method</h6>
-						<ul>
-							<li>
-								<label class="container_radio">Standard Delivery (2-3 days) - Free
-									<input type="radio" name="shipping" value="standard" checked>
-									<span class="checkmark"></span>
-								</label>
-							</li>
-							<li>
-								<label class="container_radio">Express Delivery (1 day) - 25,000 UZS
-									<input type="radio" name="shipping" value="express">
-									<span class="checkmark"></span>
-								</label>
-							</li>
-						</ul>
+						<h6 class="pb-2">Pickup Location</h6>
+						<div class="pickup_info" style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+							<p class="mb-2"><strong><i class="ti-location-pin"></i> TIU Store</strong></p>
+							<p class="small mb-1">Tashkent International University</p>
+							<p class="small mb-1">Student Center, Room 101</p>
+							<p class="small text-muted mb-0"><i class="ti-time"></i> Mon-Fri: 9:00 - 18:00</p>
+						</div>
 					</div>
 					<!-- /step -->
 
@@ -356,11 +313,8 @@
 							<li class="clearfix"><em>1x University Hoodie</em> <span>480,000 UZS</span></li>
 							<li class="clearfix"><em>2x Classic T-Shirt</em> <span>500,000 UZS</span></li>
 						</ul>
-						<ul>
-							<li class="clearfix"><em><strong>Subtotal</strong></em> <span>980,000 UZS</span></li>
-							<li class="clearfix"><em><strong>Delivery</strong></em> <span>Free</span></li>
-						</ul>
 						<div class="total clearfix">TOTAL <span>980,000 UZS</span></div>
+						<p class="small text-muted text-center mt-2"><i class="ti-package"></i> Pickup at TIU Store</p>
 						<div class="form-group">
 							<label class="container_check">I agree to <a href="#0">Terms and Conditions</a>
 							  <input type="checkbox" id="terms_checkout">
@@ -474,9 +428,6 @@
 			var fname = document.getElementById('checkout_fname').value;
 			var lname = document.getElementById('checkout_lname').value;
 			var phone = document.getElementById('checkout_phone').value;
-			var city = document.getElementById('checkout_city').value;
-			var district = document.getElementById('checkout_district').value;
-			var address = document.getElementById('checkout_address').value;
 			var terms = document.getElementById('terms_checkout').checked;
 
 			if (!fname || !lname) {
@@ -485,14 +436,6 @@
 			}
 			if (phone.length < 9) {
 				alert('Please enter a valid phone number');
-				return false;
-			}
-			if (!city) {
-				alert('Please select a city');
-				return false;
-			}
-			if (!district || !address) {
-				alert('Please enter your full address');
 				return false;
 			}
 			if (!terms) {
