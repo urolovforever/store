@@ -13,27 +13,3 @@ header .main_header .main-menu > ul {
 header ul.top_tools > li:nth-child(4) {
     display: inline-block !important;
 }
-
-/* Mobile Account Links */
-.main-menu ul.mobile-account-links {
-    border-top: 1px solid #ededed;
-    margin-top: 15px;
-    padding-top: 15px;
-}
-
-.main-menu ul.mobile-account-links li a {
-    display: block;
-    padding: 12px 15px;
-    color: #333;
-    font-size: 14px;
-}
-
-.main-menu ul.mobile-account-links li a i {
-    margin-right: 10px;
-    color: #004dda;
-}
-
-.main-menu ul.mobile-account-links li a:hover {
-    background: #f8f9fa;
-    color: #004dda;
-}
